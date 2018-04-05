@@ -16,12 +16,11 @@ global PlayerDirectory
 
 class MessengerForServer:
 
-    def __init__(self, server_ip):
+    def __init__(self, server_ip, server_port):
         self.translator = BSONTranslator()
         self.interpreter = InterpreterForServer()
         self.server_ip = server_ip
-        self.server_port = 5005
-        self.client_port = 5006
+        self.server_port = server_port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.sock.bind((self.server_ip, self.server_port))
         self.thread = threading.Thread(target=self.await_messages)
