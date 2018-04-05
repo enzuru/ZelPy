@@ -1,0 +1,5 @@
+pymemcache
+cookiecutter
+gevent
+bson
+pygame
