@@ -6,3 +6,4 @@ pygame
 coala
 coala-bears
 setuptools==17.0
+click==6.6
