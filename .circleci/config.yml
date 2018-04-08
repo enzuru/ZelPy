@@ -43,4 +43,4 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            coala -f server/**.py client/**.py --bears PEP8Bear,PyFlakesBear,PyUnusedCodeBear,RadonBear,FilenameBear,SpaceConsistencyBear -S cli.use_spaces=True file_naming_convention=snake --save
+            coala -f server/**.py client/**.py --bears PEP8Bear,PyFlakesBear,PyUnusedCodeBear,RadonBear,FilenameBear,SpaceConsistencyBear -S cli.use_spaces=True file_naming_convention=snake
