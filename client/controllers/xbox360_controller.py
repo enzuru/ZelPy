@@ -89,9 +89,10 @@ elif platform_id == MAC:
     LEFT_TRIGGER = 4
     RIGHT_TRIGGER = 5
 
+
 class Controller:
 
-    def __init__(self, id, dead_zone = 0.15):
+    def __init__(self, id, dead_zone=0.15):
         """
         Initializes a controller.
 
@@ -154,7 +155,7 @@ class Controller:
                     self.joystick.get_button(RIGHT_BUMP),
                     self.joystick.get_button(BACK),
                     self.joystick.get_button(START),
-                    0, # Unused, since Guide only works on Linux
+                    0,  # Unused, since Guide only works on Linux
                     self.joystick.get_button(LEFT_STICK_BTN),
                     self.joystick.get_button(RIGHT_STICK_BTN))
 
@@ -171,7 +172,7 @@ class Controller:
                     self.joystick.get_button(RIGHT_STICK_BTN))
 
         elif platform_id == MAC:
-            return (0, # Unused
+            return (0, # Unused  # Ignore PEP8Bear
                     0, # Unused
                     0, # Unused
                     0, # Unused
@@ -181,7 +182,7 @@ class Controller:
                     self.joystick.get_button(RIGHT_STICK_BTN),
                     self.joystick.get_button(LEFT_BUMP),
                     self.joystick.get_button(RIGHT_BUMP),
-                    0, # Unused
+                    0,  # Unused
                     self.joystick.get_button(A),
                     self.joystick.get_button(B),
                     self.joystick.get_button(X),
@@ -200,8 +201,10 @@ class Controller:
             Positive values are right and down.
         """
 
-        left_stick_x = self.dead_zone_adjustment(self.joystick.get_axis(LEFT_STICK_X))
-        left_stick_y = self.dead_zone_adjustment(self.joystick.get_axis(LEFT_STICK_Y))
+        left_stick_x = self.dead_zone_adjustment(
+            self.joystick.get_axis(LEFT_STICK_X))
+        left_stick_y = self.dead_zone_adjustment(
+            self.joystick.get_axis(LEFT_STICK_Y))
 
         return (left_stick_x, left_stick_y)
 
@@ -218,8 +221,10 @@ class Controller:
             Positive values are right and down.
         """
 
-        right_stick_x = self.dead_zone_adjustment(self.joystick.get_axis(RIGHT_STICK_X))
-        right_stick_y = self.dead_zone_adjustment(self.joystick.get_axis(RIGHT_STICK_Y))
+        right_stick_x = self.dead_zone_adjustment(
+            self.joystick.get_axis(RIGHT_STICK_X))
+        right_stick_y = self.dead_zone_adjustment(
+            self.joystick.get_axis(RIGHT_STICK_Y))
 
         return (right_stick_x, right_stick_y)
 

@@ -2,6 +2,7 @@ import pygame
 from services.colors import Colors
 from directories.sprite_directory import SpriteDirectory
 
+
 class Window:
 
     def __init__(self):

@@ -1,5 +1,6 @@
 from services.player_directory import PlayerDirectory
 
+
 class World:
 
     def load():
@@ -13,7 +14,7 @@ class World:
             "objects": []
         }
         for username in PlayerDirectory.players_by_username:
-            player =  PlayerDirectory.players_by_username[username]
+            player = PlayerDirectory.players_by_username[username]
             state["objects"].append({
                 "type": "link",
                 "value": {

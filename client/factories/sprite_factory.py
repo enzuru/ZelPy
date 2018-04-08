@@ -1,5 +1,5 @@
-from pygame import sprite
 from sprites.link_sprite import LinkSprite
+
 
 class SpriteFactory():
 

@@ -1,5 +1,6 @@
 from controllers.xbox360_controller import Controller
 
+
 class Controller360:
 
     def __init__(self, ident):

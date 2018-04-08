@@ -12,12 +12,13 @@ from translators.bson_translator import BSONTranslator
 monkey.patch_all()
 bson.patch_socket()
 
+
 class MessengerForClient:
 
     def __init__(self):
         self.translator = BSONTranslator()
         self.interpreter = InterpreterForClient()
-        self.server_ip = "127.0.0.1"
+        self.server_ip = "localhost"
         self.server_port = 5005
         self.server_sock = socket.socket(
             socket.AF_INET,

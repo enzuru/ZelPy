@@ -1,5 +1,6 @@
 from handlers.state_of_world_handler import StateOfWorldHandler
 
+
 class InterpreterForClient:
 
     message_types = {

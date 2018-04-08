@@ -2,9 +2,10 @@ import pygame
 from pygame import sprite
 import uuid
 
+
 class LinkSprite(sprite.Sprite):
 
-    def __init__(self, uuid = uuid.uuid4(), x = 0, y = 0):
+    def __init__(self, uuid=uuid.uuid4(), x=0, y=0):
         pygame.sprite.Sprite.__init__(self)
         self.uuid = uuid
         self.x = x
@@ -18,7 +19,7 @@ class LinkSprite(sprite.Sprite):
         self.image = self.images[self.index]
         self.rect = pygame.Rect(self.x, self.y, 64, 64)
 
-        #return super(sprite.Sprite, self).__init__()
+        # return super(sprite.Sprite, self).__init__()
 
     def update(self):
         self.index += 1

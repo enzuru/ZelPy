@@ -1,7 +1,7 @@
 import sys
 import os
-import threading
 from os.path import getmtime
+
 
 class SourceCodeManager:
 
@@ -9,7 +9,7 @@ class SourceCodeManager:
         self.files = files
         self.mtimes = [(f, getmtime(f)) for f in files]
         #self.thread = threading.Thread(target=self.check_files)
-        #self.thread.start()
+        # self.thread.start()
 
     def check_files(self):
         for f, mtime in self.mtimes:

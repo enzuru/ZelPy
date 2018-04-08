@@ -14,6 +14,7 @@ bson.patch_socket()
 
 global PlayerDirectory
 
+
 class MessengerForServer:
 
     def __init__(self, server_ip, server_port):

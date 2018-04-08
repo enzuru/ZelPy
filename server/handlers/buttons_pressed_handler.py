@@ -4,6 +4,7 @@ from handlers.down_handler import DownHandler
 from handlers.left_handler import LeftHandler
 from handlers.right_handler import RightHandler
 
+
 class ButtonsPressedHandler(Handler):
 
     button_types = {

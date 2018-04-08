@@ -1,8 +1,9 @@
 import uuid
 
+
 class Link:
 
-    def __init__(self, x = 0, y = 0):
+    def __init__(self, x=0, y=0):
         self.uuid = str(uuid.uuid4())
         self.x = x
         self.y = y

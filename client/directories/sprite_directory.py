@@ -1,5 +1,6 @@
 import pygame
 
+
 class SpriteDirectory:
 
     sprites_by_uuid = {}

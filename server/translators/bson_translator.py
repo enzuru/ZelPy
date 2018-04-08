@@ -1,5 +1,5 @@
-import sys
 import bson
+
 
 class BSONTranslator:
 

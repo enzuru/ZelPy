@@ -1,6 +1,7 @@
 from handlers.request_to_join_handler import RequestToJoinHandler
 from handlers.buttons_pressed_handler import ButtonsPressedHandler
 
+
 class InterpreterForServer:
 
     message_types = {

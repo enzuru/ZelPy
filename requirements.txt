@@ -3,3 +3,5 @@ cookiecutter
 gevent
 bson
 pygame
+coala
+coala-bears

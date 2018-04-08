@@ -1,6 +1,7 @@
 import sys
 from os import listdir
-from os.path import getmtime, isfile, join
+from os.path import isfile
+from os.path import join
 from messengers.messenger_for_server import MessengerForServer
 from services.source_code_manager import SourceCodeManager
 from cache.world_cache import WorldCache
@@ -10,14 +11,15 @@ print("Starting ZelPy server")
 
 ip = sys.argv[1]
 port = int(sys.argv[2])
-manager = SourceCodeManager([f for f in listdir("./") if isfile(join("./", f))])
+manager = SourceCodeManager(
+    [f for f in listdir("./") if isfile(join("./", f))])
 messenger = MessengerForServer(ip, port)
 cache = WorldCache()
 
-#cache.load()
+# cache.load()
 
 while True:
-    #cache.save()
+    # cache.save()
     manager.check_files()
     messenger.update_all_players()
     sleep(0.01)

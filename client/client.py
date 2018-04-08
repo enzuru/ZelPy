@@ -9,7 +9,8 @@ from time import sleep
 import sys
 
 username = sys.argv[1]
-manager = SourceCodeManager([f for f in listdir("./") if isfile(join("./", f))])
+manager = SourceCodeManager(
+    [f for f in listdir("./") if isfile(join("./", f))])
 window = Window()
 messenger = MessengerForClient()
 controller = Controller360(int(sys.argv[2]))

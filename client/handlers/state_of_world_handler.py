@@ -3,6 +3,7 @@ from directories.sprite_directory import SpriteDirectory
 from factories.sprite_factory import SpriteFactory
 from services.game import Game
 
+
 class StateOfWorldHandler(Handler):
 
     def execute(self):

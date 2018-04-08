@@ -1,5 +1,6 @@
 from participants.player import Player
 
+
 class PlayerFactory:
 
     @classmethod
