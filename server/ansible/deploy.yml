@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: ubuntu
+
+  tasks:
+  - name: deploy
+    shell: docker pull 599503031631.dkr.ecr.us-west-1.amazonaws.com/zelpy-server && docker run -p 5005:5005/udp 599503031631.dkr.ecr.us-west-1.amazonaws.com/zelpy-server
+    sudo: yes
+    async: 30
+    poll: 0
+    ignore_errors: false

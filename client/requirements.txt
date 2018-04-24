@@ -1,0 +1,5 @@
+cookiecutter
+gevent
+bson
+pygame
+miniupnpc

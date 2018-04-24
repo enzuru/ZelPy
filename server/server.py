@@ -9,8 +9,10 @@ from time import sleep
 
 print("Starting ZelPy server")
 
-ip = sys.argv[1]
-port = int(sys.argv[2])
+#ip = sys.argv[1]
+#port = int(sys.argv[2])
+ip = "0.0.0.0"
+port = 5005
 manager = SourceCodeManager(
     [f for f in listdir("./") if isfile(join("./", f))])
 messenger = MessengerForServer(ip, port)

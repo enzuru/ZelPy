@@ -2,6 +2,8 @@ import socket
 import threading
 import bson
 import random
+import miniupnpc
+
 from gevent import monkey
 from messages.request_to_join import RequestToJoin
 from messages.buttons_pressed import ButtonsPressed
@@ -18,7 +20,7 @@ class MessengerForClient:
     def __init__(self):
         self.translator = BSONTranslator()
         self.interpreter = InterpreterForClient()
-        self.server_ip = "localhost"
+        self.server_ip = "ec2-13-57-199-212.us-west-1.compute.amazonaws.com"
         self.server_port = 5005
         self.server_sock = socket.socket(
             socket.AF_INET,
@@ -34,6 +36,22 @@ class MessengerForClient:
         self.client_sock.bind((self.client_ip, self.client_port))
         self.thread = threading.Thread(target=self.await_messages)
         self.thread.start()
+        self.setup_upnp()
+
+    def setup_upnp(self):
+        self.upnp = miniupnpc.UPnP()
+        self.upnp.discoverdelay = 10
+        self.upnp.discover()
+        self.upnp.selectigd()
+        self.upnp.addportmapping(
+            self.client_port,
+            'UDP',
+            self.upnp.lanaddr,
+            self.client_port,
+            'ZelPy',
+            ''
+        )
+        print(self.upnp)
 
     def connect_to_server(self):
         self.server_sock.connect((self.server_ip, self.server_port))

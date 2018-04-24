@@ -1,0 +1,4 @@
+#!/bin/sh
+docker build -t zelpy-server .
+docker tag zelpy-server 599503031631.dkr.ecr.us-west-1.amazonaws.com/zelpy-server
+docker push 599503031631.dkr.ecr.us-west-1.amazonaws.com/zelpy-server

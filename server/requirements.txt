@@ -1,0 +1,4 @@
+pymemcache
+cookiecutter
+gevent
+bson

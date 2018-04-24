@@ -30,6 +30,7 @@ class MessengerForServer:
     def await_messages(self):
         while True:
             data, ip = self.sock.recvfrom(1024)
+            print(ip)
             translation = self.translator.translate(data)
             sender = PlayerDirectory.lookup_player(translation['sender'])
             if sender is None:
