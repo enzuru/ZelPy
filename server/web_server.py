@@ -3,10 +3,11 @@ import http.server
 import socketserver
 
 Handler = http.server.SimpleHTTPRequestHandler
-port = 8002
+port = 8003
 proto = 'TCP'
+url = "0.0.0.0"
 
-httpd = socketserver.TCPServer(("localhost", port), Handler)
+httpd = socketserver.TCPServer((url, port), Handler)
 print("serving at port", port)
 
 upnp = miniupnpc.UPnP()

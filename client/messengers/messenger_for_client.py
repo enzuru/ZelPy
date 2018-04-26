@@ -17,17 +17,17 @@ bson.patch_socket()
 
 class MessengerForClient:
 
-    def __init__(self):
+    def __init__(self, server_ip):
         self.translator = BSONTranslator()
         self.interpreter = InterpreterForClient()
-        self.server_ip = "ec2-13-57-199-212.us-west-1.compute.amazonaws.com"
+        self.server_ip = server_ip
         self.server_port = 5005
         self.server_sock = socket.socket(
             socket.AF_INET,
             socket.SOCK_DGRAM
         )
         self.connect_to_server()
-        self.client_ip = "127.0.0.1"
+        self.client_ip = "0.0.0.0"
         self.client_port = random.randint(5006, 6000)
         self.client_sock = socket.socket(
             socket.AF_INET,
@@ -51,7 +51,6 @@ class MessengerForClient:
             'ZelPy',
             ''
         )
-        print(self.upnp)
 
     def connect_to_server(self):
         self.server_sock.connect((self.server_ip, self.server_port))

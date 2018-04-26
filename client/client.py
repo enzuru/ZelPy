@@ -12,7 +12,7 @@ username = sys.argv[1]
 manager = SourceCodeManager(
     [f for f in listdir("./") if isfile(join("./", f))])
 window = Window()
-messenger = MessengerForClient()
+messenger = MessengerForClient(sys.argv[3])
 controller = Controller360(int(sys.argv[2]))
 
 print("Starting ZelPy client for " + username)

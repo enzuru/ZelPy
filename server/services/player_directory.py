@@ -3,11 +3,11 @@ class PlayerDirectory:
     players_by_username = {}
 
     @classmethod
-    def add_player(cls, player):
+    def add(cls, player):
         PlayerDirectory.players_by_username[player.username] = player
 
     @classmethod
-    def lookup_player(PlayerDirectory, username):
+    def lookup(PlayerDirectory, username):
         if username in PlayerDirectory.players_by_username:
             return PlayerDirectory.players_by_username[username]
         else:

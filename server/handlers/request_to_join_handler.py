@@ -9,7 +9,11 @@ class RequestToJoinHandler(Handler):
         username = self.sender.username
         ip = self.sender.ip
         port = self.value['port']
-        if PlayerDirectory.lookup_player(username) == None:
+        if PlayerDirectory.lookup(username) == None:
             player = PlayerFactory.create(username, ip, port)
-            PlayerDirectory.add_player(player)
-        # print(PlayerDirectory.players_by_username)
+            PlayerDirectory.add(player)
+        else:
+            player = PlayerDirectory.lookup(username)
+            player.ip = ip
+            player.port = port
+            print(PlayerDirectory.lookup(username))
