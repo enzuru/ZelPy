@@ -1,0 +1,1 @@
+../../client/sprites/link_sprite.py
