@@ -1,15 +1,18 @@
 from sprites.link_sprite import LinkSprite
+from sprites.circle_sprite import CircleSprite
 
 
 class SpriteFactory():
 
     @classmethod
     def create(cls, obj):
-        type = obj['type']
+        typ = obj['type']
         uuid = obj['value']['uuid']
         x = obj['value']['x']
         y = obj['value']['y']
-        if type == 'link':
+        if typ == 'Link':
             return LinkSprite(uuid, x, y)
+        elif typ == 'Circle':
+            return CircleSprite(uuid, x, y)
         else:
             return None

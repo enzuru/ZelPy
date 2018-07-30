@@ -12,6 +12,7 @@ class Window:
         self.clock = pygame.time.Clock()
         self.refresh_rate = 60
         self.size = [455, 256]
+        pygame.init()
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption("ZelPy")
 

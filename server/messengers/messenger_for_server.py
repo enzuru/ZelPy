@@ -3,7 +3,7 @@ import threading
 import bson
 from gevent import monkey
 from services.world import World
-from services.player_directory import PlayerDirectory
+from directories.player_directory import PlayerDirectory
 from messages.state_of_world import StateOfWorld
 from interpreters.interpreter_for_server import InterpreterForServer
 from translators.bson_translator import BSONTranslator

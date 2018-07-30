@@ -2,6 +2,7 @@ import sys
 from os import listdir
 from os.path import isfile
 from os.path import join
+from characters.circle import Circle
 from messengers.messenger_for_server import MessengerForServer
 from services.source_code_manager import SourceCodeManager
 from services.ai_manager import AIManager
@@ -23,6 +24,8 @@ cache = WorldCache()
 surface = Surface()
 
 # cache.load()
+
+circle = Circle(100, 100)
 
 while True:
     # cache.save()

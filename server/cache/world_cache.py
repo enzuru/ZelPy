@@ -1,5 +1,5 @@
 import json
-from services.player_directory import PlayerDirectory
+from directories.player_directory import PlayerDirectory
 from pymemcache.client.base import Client
 
 
