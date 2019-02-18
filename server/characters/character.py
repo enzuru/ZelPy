@@ -18,6 +18,9 @@ class Character:
         else:
             self.sprite.move(self.x, self.y)
 
+    def attack(self):
+        if self.sprite.action != 'attacking':
+            self.sprite.attack()
 
     def right(self):
         self.move(self.x + 1, self.y)

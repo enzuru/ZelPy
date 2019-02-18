@@ -13,6 +13,7 @@ class CircleSprite(Sprite):
         self.y = y
         self.width = 140
         self.height = 260
+        self.action = 'standard'
 
         self.images = []
         self.images.append(pygame.image.load('images/link-triforce.png'))
