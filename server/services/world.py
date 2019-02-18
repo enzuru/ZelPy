@@ -21,7 +21,8 @@ class World:
                 "value": {
                     "uuid": player.character.uuid,
                     "x": player.character.x,
-                    "y": player.character.y
+                    "y": player.character.y,
+                    "action": player.character.sprite.action
                 }
             })
         for uuid in ServerDirectory.objects_by_uuid:
@@ -31,7 +32,8 @@ class World:
                 "value": {
                     "uuid": uuid,
                     "x": obj.x,
-                    "y": obj.y
+                    "y": obj.y,
+                    "action": obj.sprite.action
                 }
             })
         return state

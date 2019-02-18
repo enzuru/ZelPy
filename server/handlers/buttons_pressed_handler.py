@@ -3,6 +3,7 @@ from handlers.up_handler import UpHandler
 from handlers.down_handler import DownHandler
 from handlers.left_handler import LeftHandler
 from handlers.right_handler import RightHandler
+from handlers.attack_handler import AttackHandler
 
 
 class ButtonsPressedHandler(Handler):
@@ -11,7 +12,8 @@ class ButtonsPressedHandler(Handler):
         "up": UpHandler,
         "down": DownHandler,
         "left": LeftHandler,
-        "right": RightHandler
+        "right": RightHandler,
+        "a": AttackHandler
     }
 
     def execute(self):
