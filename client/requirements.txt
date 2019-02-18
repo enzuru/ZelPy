@@ -1,5 +1,5 @@
 cookiecutter
 gevent
 bson
-pygame
+-e git+https://github.com/pygame/pygame.git@master#egg=pygame
 miniupnpc

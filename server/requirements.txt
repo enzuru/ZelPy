@@ -2,3 +2,4 @@ pymemcache
 cookiecutter
 gevent
 bson
+-e git+https://github.com/pygame/pygame.git@master#egg=pygame

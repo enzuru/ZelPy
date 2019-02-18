@@ -2,3 +2,12 @@
 *.pyo
 venv/
 *.retry
+bin/
+include/
+lib/
+lib64/
+src/
+pyvenv.cfg
+client/lib64
+server/lib64
+

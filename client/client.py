@@ -3,6 +3,7 @@ from os.path import isfile, join
 from services.window import Window
 from messengers.messenger_for_client import MessengerForClient
 from controllers.controller_360 import Controller360
+from controllers.keyboard import Keyboard
 from services.source_code_manager import SourceCodeManager
 from services.game import Game
 from time import sleep
@@ -13,7 +14,8 @@ manager = SourceCodeManager(
     [f for f in listdir("./") if isfile(join("./", f))])
 window = Window()
 messenger = MessengerForClient(sys.argv[3])
-controller = Controller360(int(sys.argv[2]))
+#controller = Controller360(int(sys.argv[2]))
+controller = Keyboard()
 
 print("Starting ZelPy client for " + username)
 

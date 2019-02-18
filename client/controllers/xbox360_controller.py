@@ -19,6 +19,8 @@ elif sys.platform.startswith("darwin"):
     platform_id = MAC
 elif sys.platform.startswith("win"):
     platform_id = WINDOWS
+else:
+    platform_id = None
 
 if platform_id == LINUX:
     # buttons
