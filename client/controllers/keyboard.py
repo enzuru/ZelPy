@@ -6,7 +6,6 @@ class Keyboard:
     def get_buttons_pressed(self):
         buttons = []
         keys = pygame.key.get_pressed()
-        print(keys)
         if keys[pygame.K_LEFT]:
             buttons.append('left')
         if keys[pygame.K_RIGHT]:
@@ -15,4 +14,6 @@ class Keyboard:
             buttons.append('up')
         if keys[pygame.K_DOWN]:
             buttons.append('down')
+        if keys[pygame.K_SPACE]:
+            buttons.append('a')
         return buttons

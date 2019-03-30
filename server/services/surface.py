@@ -1,4 +1,5 @@
 import pygame
+from services.colors import Colors
 from directories.sprite_directory import SpriteDirectory
 
 
@@ -16,7 +17,7 @@ class Surface:
         pygame.display.set_caption("ZelPy")
 
     def update(self):
-        self.screen.fill((0, 0, 0))
+        self.screen.fill(Colors.grass)
         SpriteDirectory.sprite_group.update()
         SpriteDirectory.sprite_group.draw(self.screen)
         pygame.display.flip()

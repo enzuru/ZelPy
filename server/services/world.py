@@ -5,26 +5,13 @@ from directories.server_directory import ServerDirectory
 class World:
 
     def load():
-        print("fuck")
+        print("World loaded")
 
     def save():
-        print("fuck")
+        print("World saved")
 
     def get_state():
-        state = {
-            "objects": []
-        }
-        for username in PlayerDirectory.players_by_username:
-            player = PlayerDirectory.players_by_username[username]
-            state["objects"].append({
-                "type": "Link",
-                "value": {
-                    "uuid": player.character.uuid,
-                    "x": player.character.x,
-                    "y": player.character.y,
-                    "action": player.character.sprite.action
-                }
-            })
+        state = {"objects": [] }
         for uuid in ServerDirectory.objects_by_uuid:
             obj = ServerDirectory.objects_by_uuid[uuid]
             state["objects"].append({
@@ -33,7 +20,9 @@ class World:
                     "uuid": uuid,
                     "x": obj.x,
                     "y": obj.y,
-                    "action": obj.sprite.action
+                    "action": obj.sprite.action,
+                    "direction": obj.sprite.direction,
+                    "index": obj.sprite.index
                 }
             })
         return state

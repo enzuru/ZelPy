@@ -6,39 +6,11 @@ import uuid
 
 class LinkSprite(Sprite):
 
-    def __init__(self, uuid=uuid.uuid4(), x=0, y=0):
-        pygame.sprite.Sprite.__init__(self)
-        self.uuid = uuid
-        self.x = x
-        self.y = y
-        self.width = 64
-        self.height = 64
-
-        self.load_images()
-        self.action = 'standing'
-        self.direction = 'down'
-        self.index = 0
-
-        self.image = self.images[self.action][self.direction][self.index]
-        self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
-        self.mask = pygame.mask.from_surface(self.image)
-
-    def load_images(self):
-        self.images = {}
-        for action in ['standing', 'walking', 'attacking']:
-            self.images[action] = {}
-            for direction in ['up', 'down', 'left', 'right']:
-                self.images[action][direction] = []
-                for index in [1, 2, 3, 4, 5, 6, 7, 8]:
-                    try:
-                        image = 'images/link/' + action + '/' + direction + '/' + str(index) + '.png'
-                        self.images[action][direction].append(
-                            pygame.image.load(image)
-                        )
-                    except:
-                        print("Doesn't matter")
-                    else:
-                        print("Else!")
+    def __init__(self, uuid=uuid.uuid4(), x=0, y=0, action='standing', direction='down', index=0):
+        self.actions = ['standing', 'walking', 'attacking']
+        self.directions = ['up', 'down', 'left', 'right']
+        super().__init__(uuid, x, y, action, direction, index)
+        self.set_image(self.images[self.action][self.direction][self.index])
 
     def update(self):
         images = self.images[self.action][self.direction]
@@ -46,6 +18,30 @@ class LinkSprite(Sprite):
         if self.index >= len(images):
             self.index = 0
             self.action = 'standing'
-        self.image = images[self.index]
-        self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
-        self.mask = pygame.mask.from_surface(self.image)
+        self.set_image(images[self.index])
+
+    def attack(self):
+        self.index = 0
+        self.action = 'attacking'
+
+    def move(self, x, y):
+        if self.action == 'attacking':
+            return
+
+        if self.x != x or self.y != y:
+            self.action = 'walking'
+        else:
+            self.action = 'standing'
+
+        if self.x > x:
+            self.direction = 'left'
+        elif self.x < x:
+            self.direction = 'right'
+
+        if self.y > y:
+            self.direction = 'up'
+        elif self.y < y:
+            self.direction = 'down'
+
+        self.x = x
+        self.y = y

@@ -4,11 +4,16 @@ from directories.sprite_directory import SpriteDirectory
 
 class Character:
 
-    def move(self, x, y):
+    def move(self, x=0, y=0):
         update = True
         self.sprite.move(x, y)
-        collisions = pygame.sprite.spritecollide(self.sprite, SpriteDirectory.sprite_group, False, pygame.sprite.collide_mask)
-        print(collisions)
+        collisions = pygame.sprite.spritecollide(
+            self.sprite,
+            SpriteDirectory.sprite_group,
+            False,
+            pygame.sprite.collide_mask
+        )
+        #print(collisions)
         for sprite in collisions:
             if sprite is not self.sprite:
                 update = False
@@ -17,10 +22,6 @@ class Character:
             self.y = y
         else:
             self.sprite.move(self.x, self.y)
-
-    def attack(self):
-        if self.sprite.action != 'attacking':
-            self.sprite.attack()
 
     def right(self):
         self.move(self.x + 1, self.y)

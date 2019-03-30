@@ -22,7 +22,7 @@ class Window:
                 self.done = True
 
     def update(self):
-        self.screen.fill(Colors.white)
+        self.screen.fill(Colors.grass)
         SpriteDirectory.sprite_group.update()
         SpriteDirectory.sprite_group.draw(self.screen)
         pygame.display.flip()

@@ -1,5 +1,4 @@
-from sprites.link_sprite import LinkSprite
-from sprites.circle_sprite import CircleSprite
+import importlib
 
 
 class SpriteFactory():
@@ -8,11 +7,16 @@ class SpriteFactory():
     def create(cls, obj):
         typ = obj['type']
         uuid = obj['value']['uuid']
+
         x = obj['value']['x']
         y = obj['value']['y']
-        if typ == 'Link':
-            return LinkSprite(uuid, x, y)
-        elif typ == 'Circle':
-            return CircleSprite(uuid, x, y)
-        else:
-            return None
+
+        action = obj['value']['action']
+        direction = obj['value']['direction']
+        index = obj['value']['index']
+
+        class_name = 'sprites.' + typ + 'Sprite'
+        mod = importlib.import_module('sprites.' + typ.lower() + '_sprite')
+        Sprite = getattr(mod, typ + 'Sprite')
+
+        return Sprite(uuid, x, y, action, direction, index)

@@ -26,6 +26,7 @@ class MessengerForServer:
         self.sock.bind((self.server_ip, self.server_port))
         self.thread = threading.Thread(target=self.await_messages)
         self.thread.start()
+        self.last_state = None
 
     def await_messages(self):
         while True:
@@ -45,6 +46,10 @@ class MessengerForServer:
 
     def update_all_players(self):
         message = StateOfWorld(World.get_state()).message()
+        if message == self.last_state:
+            return
+        else:
+            self.last_state = message
         for username in PlayerDirectory.players_by_username:
             player = PlayerDirectory.players_by_username[username]
             self.send_message(player, message)

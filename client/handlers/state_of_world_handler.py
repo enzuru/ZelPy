@@ -13,11 +13,14 @@ class StateOfWorldHandler(Handler):
             x = obj['value']['x']
             y = obj['value']['y']
             action = obj['value']['action']
-            sprite = SpriteDirectory.lookup_sprite(uuid)
+            index = obj['value']['index']
+            direction = obj['value']['direction']
+            sprite = SpriteDirectory.lookup(uuid)
             if sprite:
                 sprite.move(x, y)
-                if action == 'attacking':
-                    sprite.attack()
+                sprite.action = action
+                sprite.index = index
+                sprite.direction = direction
             else:
                 sprite = SpriteFactory.create(obj)
-                SpriteDirectory.add_sprite(sprite)
+                SpriteDirectory.add(sprite)
