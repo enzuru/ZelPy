@@ -1,18 +1,21 @@
-import pygame
 import uuid
-from directories.sprite_directory import SpriteDirectory
-from pygame import sprite
+from typing import Any
+from typing import Optional
+
 from sprites.sprite import Sprite
 
-
 class PoeSprite(Sprite):
-
-    def __init__(self, uuid=uuid.uuid4(), x=0, y=0, action='walking', direction='left', index=0, parent=None):
-        self.actions = ['walking']
-        self.directions = ['left', 'right']
-        super().__init__(uuid, x, y, action, direction, index)
+    def __init__(
+        self,
+        uuid: str = uuid.uuid4(),
+        x: int = 0,
+        y: int = 0,
+        action: str = "walking",
+        direction: str = "left",
+        index: int = 0,
+        parent: Optional[Any] = None,
+    ):
+        self.actions = ["walking"]
+        self.directions = ["left", "right"]
+        super().__init__(uuid, x, y, action, direction, index, parent)
         self.set_image(self.images[self.action][self.direction][self.index])
-
-    def update(self):
-        self.x = self.x
-        self.y = self.y

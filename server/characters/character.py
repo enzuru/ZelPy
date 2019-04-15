@@ -1,36 +1,21 @@
-import pygame
-from directories.sprite_directory import SpriteDirectory
-
-
 class Character:
+    def move(self, x: int = 0, y: int = 0) -> None:
+        self.x = x
+        self.y = y
+        self.sprite.move(self.x, self.y)
 
-    def move(self, x=0, y=0):
-        update = True
-        self.sprite.move(x, y)
-        collisions = pygame.sprite.spritecollide(
-            self.sprite,
-            SpriteDirectory.sprite_group,
-            False,
-            pygame.sprite.collide_mask
-        )
-        #print(collisions)
-        for sprite in collisions:
-            if sprite is not self.sprite:
-                update = False
-        if update is True:
-            self.x = x
-            self.y = y
-        else:
-            self.sprite.move(self.x, self.y)
+    def move_difference(self, x: int = 0, y: int = 0) -> None:
+        self.move(self.x + x, self.y + y)
 
-    def right(self):
+    def right(self) -> None:
         self.move(self.x + 1, self.y)
+        print(self.x)
 
-    def left(self):
+    def left(self) -> None:
         self.move(self.x - 1, self.y)
 
-    def up(self):
+    def up(self) -> None:
         self.move(self.x, self.y - 1)
 
-    def down(self):
+    def down(self) -> None:
         self.move(self.x, self.y + 1)

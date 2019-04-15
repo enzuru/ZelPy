@@ -1,5 +1,6 @@
-class Handler:
+from typing import Any
 
-    def __init__(self, sender, value):
+class Handler:
+    def __init__(self, sender: Any, value: Any) -> None:
         self.sender = sender
         self.value = value

@@ -1,18 +1,19 @@
+from typing import Dict
+from typing import Optional
+
+from participants.player import Player
+
 class PlayerDirectory:
 
-    players_by_username = {}
+    players_by_username: Dict[str, Player] = {}
 
     @classmethod
-    def add(cls, player):
+    def add(cls, player: Player) -> None:
         PlayerDirectory.players_by_username[player.username] = player
 
     @classmethod
-    def lookup(PlayerDirectory, username):
+    def lookup(cls, username: str) -> Optional[Player]:
         if username in PlayerDirectory.players_by_username:
             return PlayerDirectory.players_by_username[username]
         else:
             return None
-
-    @classmethod
-    def get_players_by_username(cls):
-        return PlayerDirectory.players_by_username

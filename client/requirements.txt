@@ -3,3 +3,4 @@ gevent
 bson
 -e git+https://github.com/pygame/pygame.git@master#egg=pygame
 miniupnpc
+pykka

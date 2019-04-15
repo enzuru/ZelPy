@@ -93,7 +93,6 @@ elif platform_id == MAC:
 
 
 class Controller:
-
     def __init__(self, id, dead_zone=0.15):
         """
         Initializes a controller.
@@ -149,46 +148,52 @@ class Controller:
         """
 
         if platform_id == LINUX:
-            return (self.joystick.get_button(A),
-                    self.joystick.get_button(B),
-                    self.joystick.get_button(X),
-                    self.joystick.get_button(Y),
-                    self.joystick.get_button(LEFT_BUMP),
-                    self.joystick.get_button(RIGHT_BUMP),
-                    self.joystick.get_button(BACK),
-                    self.joystick.get_button(START),
-                    0,  # Unused, since Guide only works on Linux
-                    self.joystick.get_button(LEFT_STICK_BTN),
-                    self.joystick.get_button(RIGHT_STICK_BTN))
+            return (
+                self.joystick.get_button(A),
+                self.joystick.get_button(B),
+                self.joystick.get_button(X),
+                self.joystick.get_button(Y),
+                self.joystick.get_button(LEFT_BUMP),
+                self.joystick.get_button(RIGHT_BUMP),
+                self.joystick.get_button(BACK),
+                self.joystick.get_button(START),
+                0,  # Unused, since Guide only works on Linux
+                self.joystick.get_button(LEFT_STICK_BTN),
+                self.joystick.get_button(RIGHT_STICK_BTN),
+            )
 
         elif platform_id == WINDOWS:
-            return (self.joystick.get_button(A),
-                    self.joystick.get_button(B),
-                    self.joystick.get_button(X),
-                    self.joystick.get_button(Y),
-                    self.joystick.get_button(LEFT_BUMP),
-                    self.joystick.get_button(RIGHT_BUMP),
-                    self.joystick.get_button(BACK),
-                    self.joystick.get_button(START),
-                    self.joystick.get_button(LEFT_STICK_BTN),
-                    self.joystick.get_button(RIGHT_STICK_BTN))
+            return (
+                self.joystick.get_button(A),
+                self.joystick.get_button(B),
+                self.joystick.get_button(X),
+                self.joystick.get_button(Y),
+                self.joystick.get_button(LEFT_BUMP),
+                self.joystick.get_button(RIGHT_BUMP),
+                self.joystick.get_button(BACK),
+                self.joystick.get_button(START),
+                self.joystick.get_button(LEFT_STICK_BTN),
+                self.joystick.get_button(RIGHT_STICK_BTN),
+            )
 
         elif platform_id == MAC:
-            return (0, # Unused  # Ignore PEP8Bear
-                    0, # Unused
-                    0, # Unused
-                    0, # Unused
-                    self.joystick.get_button(START),
-                    self.joystick.get_button(BACK),
-                    self.joystick.get_button(LEFT_STICK_BTN),
-                    self.joystick.get_button(RIGHT_STICK_BTN),
-                    self.joystick.get_button(LEFT_BUMP),
-                    self.joystick.get_button(RIGHT_BUMP),
-                    0,  # Unused
-                    self.joystick.get_button(A),
-                    self.joystick.get_button(B),
-                    self.joystick.get_button(X),
-                    self.joystick.get_button(Y))
+            return (
+                0,  # Unused  # Ignore PEP8Bear
+                0,  # Unused
+                0,  # Unused
+                0,  # Unused
+                self.joystick.get_button(START),
+                self.joystick.get_button(BACK),
+                self.joystick.get_button(LEFT_STICK_BTN),
+                self.joystick.get_button(RIGHT_STICK_BTN),
+                self.joystick.get_button(LEFT_BUMP),
+                self.joystick.get_button(RIGHT_BUMP),
+                0,  # Unused
+                self.joystick.get_button(A),
+                self.joystick.get_button(B),
+                self.joystick.get_button(X),
+                self.joystick.get_button(Y),
+            )
 
     def get_left_stick(self):
         """
@@ -203,10 +208,8 @@ class Controller:
             Positive values are right and down.
         """
 
-        left_stick_x = self.dead_zone_adjustment(
-            self.joystick.get_axis(LEFT_STICK_X))
-        left_stick_y = self.dead_zone_adjustment(
-            self.joystick.get_axis(LEFT_STICK_Y))
+        left_stick_x = self.dead_zone_adjustment(self.joystick.get_axis(LEFT_STICK_X))
+        left_stick_y = self.dead_zone_adjustment(self.joystick.get_axis(LEFT_STICK_Y))
 
         return (left_stick_x, left_stick_y)
 
@@ -223,10 +226,8 @@ class Controller:
             Positive values are right and down.
         """
 
-        right_stick_x = self.dead_zone_adjustment(
-            self.joystick.get_axis(RIGHT_STICK_X))
-        right_stick_y = self.dead_zone_adjustment(
-            self.joystick.get_axis(RIGHT_STICK_Y))
+        right_stick_x = self.dead_zone_adjustment(self.joystick.get_axis(RIGHT_STICK_X))
+        right_stick_y = self.dead_zone_adjustment(self.joystick.get_axis(RIGHT_STICK_Y))
 
         return (right_stick_x, right_stick_y)
 

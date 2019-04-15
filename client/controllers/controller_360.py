@@ -1,18 +1,18 @@
+from typing import List
+
 from controllers.xbox360_controller import Controller
 
-
 class Controller360:
-
-    def __init__(self, ident):
+    def __init__(self, ident: int) -> None:
         self.controller = Controller(ident)
 
-    def get_buttons_pressed(self):
+    def get_buttons_pressed(self) -> List[str]:
         buttons = []
         (
             self.PAD_UP,
             self.PAD_RIGHT,
             self.PAD_DOWN,
-            self.PAD_LEFT
+            self.PAD_LEFT,
         ) = self.controller.get_pad()
         (
             self.BUTTON_A,
@@ -25,16 +25,16 @@ class Controller360:
             self.START,
             self.DONT_WORK,
             self.LEFT_STICK_BTN,
-            self.RIGHT_STICK_BTN
+            self.RIGHT_STICK_BTN,
         ) = self.controller.get_buttons()
         if self.PAD_UP:
-            buttons.append('up')
+            buttons.append("up")
         if self.PAD_DOWN:
-            buttons.append('down')
+            buttons.append("down")
         if self.PAD_LEFT:
-            buttons.append('left')
+            buttons.append("left")
         if self.PAD_RIGHT:
-            buttons.append('right')
+            buttons.append("right")
         if self.BUTTON_A:
-            buttons.append('a')
+            buttons.append("a")
         return buttons

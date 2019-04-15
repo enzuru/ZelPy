@@ -10,4 +10,4 @@ src/
 pyvenv.cfg
 client/lib64
 server/lib64
-
+.mypy_cache/

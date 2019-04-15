@@ -1,38 +1,20 @@
 import sys
-from os import listdir
-from os.path import isfile
-from os.path import join
-from characters.triforce import Triforce
-from characters.poe import Poe
-from messengers.messenger_for_server import MessengerForServer
-from services.source_code_manager import SourceCodeManager
-from directories.ai_directory import AIDirectory
-from services.surface import Surface
-from cache.world_cache import WorldCache
-from time import sleep
+import threading
+
+from actors.game_loop import GameLoop
+
+TICK_DELAY = 0.01
+
+ip = sys.argv[1]
+port = int(sys.argv[2])
+loop = GameLoop.start(ip, port)
+
+
+def tick() -> None:
+    loop.ask({"msg": "wakeup"})
+    timer = threading.Timer(TICK_DELAY, tick)
+    timer.start()
+
 
 print("Starting ZelPy server")
-
-#ip = sys.argv[1]
-#port = int(sys.argv[2])
-ip = "0.0.0.0"
-port = 5005
-
-source_code = SourceCodeManager(
-    [f for f in listdir("./") if isfile(join("./", f))])
-ai = AIDirectory()
-messenger = MessengerForServer(ip, port)
-cache = WorldCache()
-surface = Surface()
-
-# cache.load()
-poe = Poe(200, 200)
-triforce = Triforce(300, 300)
-
-while True:
-    # cache.save()
-    source_code.check_files()
-    ai.make_moves()
-    surface.update()
-    messenger.update_all_players()
-    sleep(0.01)
+tick()

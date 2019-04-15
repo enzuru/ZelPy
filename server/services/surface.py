@@ -1,11 +1,9 @@
 import pygame
-from services.colors import Colors
 from directories.sprite_directory import SpriteDirectory
-
+from services.colors import Colors
 
 class Surface:
-
-    def __init__(self):
+    def __init__(self) -> None:
         pygame.init()
         pygame.joystick.init()
         self.done = False
@@ -16,7 +14,7 @@ class Surface:
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption("ZelPy")
 
-    def update(self):
+    def update(self) -> None:
         self.screen.fill(Colors.grass)
         SpriteDirectory.sprite_group.update()
         SpriteDirectory.sprite_group.draw(self.screen)

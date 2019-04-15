@@ -1,16 +1,15 @@
-class RequestToJoin:
+from typing import Any
+from typing import Dict
 
-    def __init__(self, username, port):
+from messages.message import Message
+
+class RequestToJoin(Message):
+    def __init__(self, username: str, port: int):
         self.username = username
         self.port = port
 
-    def message(self):
+    def message(self) -> Dict[str, Any]:
         return {
             "sender": self.username,
-            "messages": [{
-                "type": "request_to_join",
-                "value": {
-                    "port": self.port
-                }
-            }]
+            "messages": [{"type": "request_to_join", "value": {"port": self.port}}],
         }

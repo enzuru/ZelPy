@@ -1,7 +1,5 @@
 from handlers.handler import Handler
 
-
 class AttackHandler(Handler):
-
-    def execute(self):
+    def execute(self) -> None:
         self.sender.character.attack()
