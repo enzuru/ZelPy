@@ -1,4 +1,9 @@
+from sprites.sprite import Sprite
+
 class Character:
+    def __init__(self, sprite: Sprite) -> None:
+        self.sprite = sprite
+
     def move(self, x: int = 0, y: int = 0) -> None:
         self.x = x
         self.y = y
@@ -9,7 +14,6 @@ class Character:
 
     def right(self) -> None:
         self.move(self.x + 1, self.y)
-        print(self.x)
 
     def left(self) -> None:
         self.move(self.x - 1, self.y)

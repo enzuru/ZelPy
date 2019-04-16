@@ -14,12 +14,12 @@
                         (defun start-server ()
                           "Start game server"
                           (let ((default-directory "~/src/ZelPy/server/"))
-                            (start-process "my-process" "ZelPy" "~/src/ZelPy/server/bin/python3.6" "server.py")))
+                            (start-process "my-process" "ZelPy" "~/src/ZelPy/server/bin/python3.6" "server.py" "0.0.0.0" "5005")))
 
                         (defun start-client ()
                           "Start game client"
                           (let ((default-directory "~/src/ZelPy/client/"))
-                            (start-process "my-process" "ZelPy" "~/src/ZelPy/client/bin/python3.6" "client.py" "enzuru" "0" "0.0.0.0")))
+                            (start-process "my-process" "ZelPy" "~/src/ZelPy/client/bin/python3.6" "client.py" "enzuru" "0.0.0.0" "0" "snes")))
 
                         (defun process-launched (process status)
                           "Print process status"
