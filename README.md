@@ -6,4 +6,4 @@ I implement the actor-based single-threaded model of multiplayer game engine des
 
 Installation and use instructions will eventually be updated here as the project matures.
 
-For now, dive into the client code at [client/client.py](client/client.py) and [server/server.py](server/server.py).
+For now, dive into the client code at [client/client.py](client/client.py) and the server code at [server/server.py](server/server.py).
