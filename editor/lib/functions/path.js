@@ -1,1 +1,0 @@
-path = (file) => root + file;
