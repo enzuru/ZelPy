@@ -6,7 +6,15 @@ I implement the actor-based single-threaded model of multiplayer game engine des
 
 # Requirements
 
-Ensure miniupnpc and SDL2 is installed. On Guix the command is:
+Ensure miniupnpc and SDL2 is installed.
+
+## Mac
+
+```
+brew install sdl2 miniupnpc
+```
+
+## Linux
 
 ```
 guix install sdl2 sdl2-gfx sdl2-image sdl2-mixer sdl2-net sdl2-ttf miniupnpc
@@ -18,7 +26,7 @@ guix install sdl2 sdl2-gfx sdl2-image sdl2-mixer sdl2-net sdl2-ttf miniupnpc
 cd server
 pip install -r requirements.txt
 cd ../client
-CC=gcc pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 # Running
