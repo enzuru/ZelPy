@@ -1,4 +1,5 @@
 import pygame
+
 from directories.sprite_directory import SpriteDirectory
 from services.colors import Colors
 
@@ -11,6 +12,7 @@ class Surface:
         self.refresh_rate = 60
         self.size = [455, 256]
         pygame.init()
+        pygame.display.list_modes()
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption("ZelPy")
 
