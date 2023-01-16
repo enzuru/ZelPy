@@ -1,6 +1,6 @@
 # ZelPy
 
-This is a "work in progress" SNES-style MOBA in [PyGame](https://www.pygame.org/) and [Pykka](https://www.pykka.org/en/latest/).
+This is a "work in progress" Zelda-like multiplayer game engine in [PyGame](https://www.pygame.org/) and [Pykka](https://www.pykka.org/en/latest/).
 
 I implement the actor-based single-threaded model of multiplayer game engine design as described in these books: https://leanpub.com/u/nobugs
 
